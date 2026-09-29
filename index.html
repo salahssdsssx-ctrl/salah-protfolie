@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salah Hamed | Computer Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f1115;
+            color: #d1d5db;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        header {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: #9ca3af;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #0f1115;
+        }
+
+        .btn-primary:hover {
+            background-color: #e5e7eb;
+        }
+
+        .btn-secondary {
+            background-color: #1f242d;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: #374151;
+        }
+
+        .hero-card {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .hero-card h3 {
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-card p {
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-row span:first-child {
+            color: #9ca3af;
+        }
+
+        .info-row span:last-child {
+            color: #ffffff;
+        }
+
+        /* Section Titles */
+        .section-number {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        /* Cards Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: #1f242d;
+            color: #d1d5db;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills/Toolkit */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-box {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience / Training */
+        .exp-item {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-org {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-title {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Contact */
+        .contact-box {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .grid-2, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-box {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Salah.</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#training">Training</a>
+            <a href="#next-steps">Next Steps</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <div class="hero-tag">Computer Science • Software Development • Open to Opportunities</div>
+                <h1>Hi, I'm Salah Hamed.</h1>
+                <p>Computer Science professional in development, focused on software development, problem solving, and building practical digital solutions. I work with Java, Python, C++, JavaScript, HTML, and CSS, with a strong interest in writing clean, organized code and turning ideas into useful applications. Through hands-on training and personal projects, I continue to strengthen my programming fundamentals, software design, and ability to work on real-world technical challenges.</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>SH</h3>
+                <p>Salah Hamed<br><span style="color: #9ca3af; font-size: 0.8rem;">Computer Science • Software Development</span></p>
+                <div class="info-row">
+                    <span>Core languages</span>
+                    <span>Java • Python • C++</span>
+                </div>
+                <div class="info-row">
+                    <span>Web</span>
+                    <span>JS • HTML • CSS</span>
+                </div>
+                <div class="info-row" style="border: none;">
+                    <span>Based in</span>
+                    <span>Egypt</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <span class="section-number">01 — ABOUT</span>
+            <h2 class="section-title">Building skills through practice.</h2>
+            <div class="card" style="max-width: 100%;">
+                <p style="margin-bottom: 1rem;">I have a strong interest in software development and enjoy building practical applications that combine problem solving with clean and structured code. My technical background includes Java, Python, C++, JavaScript, HTML, and CSS, alongside foundations in Object-Oriented Programming, Data Structures, Algorithms, and web development. I focus on understanding how systems work, breaking complex problems into smaller tasks, and continuously improving the quality of my solutions through practice and project-based learning.</p>
+                <p>I am currently focused on strengthening my software engineering skills, expanding my project portfolio, improving my Git/GitHub workflow, and preparing for opportunities where I can contribute to real development teams and continue learning from experienced professionals.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <span class="section-number">02 — SELECTED WORK</span>
+            <h2 class="section-title">Projects</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Student Management System</h3>
+                    <p><strong>My role:</strong> Architected and developed the core backend logic in Java using robust Object-Oriented Programming (OOP) principles. Implemented custom data structures and efficient search operations to handle student records securely, ensuring clean, modular, and maintainable code architecture.</p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                    <a href="https://github.com/Salahssdsssx" target="_blank" class="card-link">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h3>E-Commerce Website</h3>
+                    <p><strong>My role:</strong> Designed and implemented the complete front-end user interface and layout from scratch. Developed responsive web components using HTML5 and CSS3, and wrote dynamic client-side JavaScript logic to power product catalog interactions, seamless filtering, and interactive cart operations.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/Salahssdsssx" target="_blank" class="card-link">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h3>Python Expense Tracker</h3>
+                    <p><strong>My role:</strong> Designed and engineered the core procedural and algorithmic logic for automated tracking, categorization, and financial calculation. Focused on structuring modular Python functions, handling input validation gracefully, and delivering a smooth, reliable command-line user workflow.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Logic</span>
+                    </div>
+                    <a href="https://github.com/Salahssdsssx" target="_blank" class="card-link">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h3>Library Management System</h3>
+                    <p><strong>My role:</strong> Built a comprehensive resource management application in C++. Designed custom classes and inheritance hierarchies applying strict OOP paradigms, optimized searching algorithms for rapid record lookup, and handled complex book inventory transactions, borrowing, and returning workflows.</p>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Algorithms</span>
+                    </div>
+                    <a href="https://github.com/Salahssdsssx" target="_blank" class="card-link">View on GitHub ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <span class="section-number">03 — TOOLKIT</span>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-box">Java</div>
+                <div class="skill-box">Python</div>
+                <div class="skill-box">C++</div>
+                <div class="skill-box">JavaScript</div>
+                <div class="skill-box">HTML & CSS</div>
+                <div class="skill-box">OOP</div>
+                <div class="skill-box">Data Structures</div>
+                <div class="skill-box">Problem Solving</div>
+                <div class="skill-box">Git & GitHub</div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training">
+            <span class="section-number">04 — EXPERIENCE</span>
+            <h2 class="section-title">Training</h2>
+            
+            <div class="exp-item">
+                <div class="exp-org">DIGITAL EGYPT PIONEERS INITIATIVE</div>
+                <div class="exp-title">DEPI — Technical Training</div>
+                <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem;">Underwent intensive, project-based technical training focused on advanced software engineering concepts, collaborative workflows, and algorithmic problem-solving. This program bridged theoretical computer science principles with real-world application building, greatly sharpening my debugging abilities, structured code design, and cross-functional team communication.</p>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span class="tag">Programming</span>
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Project-Based Learning</span>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-org">INFORMATION TECHNOLOGY</div>
+                <div class="exp-title">IT Training</div>
+                <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem;">Completed a rigorous professional development curriculum covering core IT infrastructure, enterprise software life cycles, and systematic technical troubleshooting. Strengthened analytical skills for mapping out system requirements, adapting rapidly to emerging tech stacks, and executing technical tasks with high organizational precision.</p>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span class="tag">IT Fundamentals</span>
+                    <span class="tag">Technical Skills</span>
+                    <span class="tag">Troubleshooting</span>
+                    <span class="tag">Professional Skills</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section id="next-steps">
+            <span class="section-number">05 — NEXT STEPS</span>
+            <h2 class="section-title">What I'm working toward.</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Deepen my software skills</h3>
+                    <p>Continue improving Java, Python, C++, JavaScript, Data Structures, Algorithms, and Object-Oriented Programming through consistent practice and real projects.</p>
+                </div>
+                <div class="card">
+                    <h3>Build stronger projects</h3>
+                    <p>Create more complete applications, improve existing projects, document my work, and publish well-organized repositories on GitHub.</p>
+                </div>
+                <div class="card">
+                    <h3>Develop professionally</h3>
+                    <p>Improve teamwork, communication, technical English, Git workflows, and the development practices used in professional software teams.</p>
+                </div>
+                <div class="card">
+                    <h3>Prepare for opportunities</h3>
+                    <p>Work toward internships and junior opportunities where I can contribute to real projects, gain practical experience, and grow as a software developer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="border: none;">
+            <span class="section-number">06 — CONTACT</span>
+            <div class="contact-box">
+                <div>
+                    <h2 style="color: #ffffff; font-size: 1.75rem; margin-bottom: 0.5rem;">Let's build something.</h2>
+                    <p style="color: #9ca3af; font-size: 0.9rem;">Feel free to reach out for opportunities or collaboration.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="mailto:Salahssdsssx@gmail.com" class="btn btn-primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/salah-hamed-527008344?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                    <a href="https://github.com/Salahssdsssx" target="_blank" class="btn btn-secondary">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Salah Hamed. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
